@@ -5,15 +5,20 @@
 # Purpose: Create a map to publish on the LabSis website
 export GMT_SESSION_NAME=$$	# Set a unique session name
 rsisne() {
+    # Insere na figura as estações sismográficas pela lat long delas
     while read LONG LAT; do
         echo $LAT $LONG | gmt plot -St0.35c -W0.7p -Gdimgray
     done < latlong.rsisne.txt
 }
 
 eventos_do_mes(){
-    echo -40 -5 | gmt plot -Sc0.5c -W1p,red -Gred
+    # Insere na figura os eventos sísmicos do mês TODO:Implementar lst.eventos.txt
+    #while read LAT LONG MAG; do
+    #    echo $LAT $LONG | gmt plot -Sc0.5c -W1p,red -Gred
+    #done < lst.eventos.txt
+    echo -40 -5 | gmt plot -Sc0.8c -W1p,red -Gred
     echo -37 -9 | gmt plot -Sc0.5c -W1p,red -Gred
-    echo -45 -8 | gmt plot -Sc0.5c -W1p,red -Gred
+    echo -45 -8 | gmt plot -Sc0.2c -W1p,red -Gred
 }
 
 gmt begin mapa-boletim pdf
