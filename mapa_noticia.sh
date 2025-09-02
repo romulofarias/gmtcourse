@@ -7,14 +7,9 @@ export GMT_SESSION_NAME=$$	# Set a unique session name
 rsisne() {
     while read LONG LAT; do
         echo $LAT $LONG | gmt plot -St0.35c -W0.7p -Gdimgray
-    done < teste.txt
+    done < latlong.rsisne.txt
 }
 
-eventos_do_mes(){
-    echo -40 -5 | gmt plot -Sc0.5c -W1p,red -Gred
-    echo -37 -9 | gmt plot -Sc0.5c -W1p,red -Gred
-    echo -45 -8 | gmt plot -Sc0.5c -W1p,red -Gred
-}
 gmt begin mapa-noticia pdf
     #Lay down painted continent with national borders on a Mercator map
     #R:region minLat/maxLat/minLong/maxLong
